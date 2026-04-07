@@ -1,13 +1,13 @@
-/* UNIVERSAL CHAOS RESET */
+/* the global chaos starter pack */
 * {
   margin: 3px;
   padding: 1px;
   box-sizing: border-box;
   font-family: "Comic Sans MS", "Papyrus", cursive;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
-/* ELEMENT SELECTOR + BACKGROUND WAR CRIME */
+/* background is basically an assault on eyesight (help) */
 body {
   background: repeating-linear-gradient(
     45deg,
@@ -18,9 +18,23 @@ body {
   );
   color: black;
   overflow-x: hidden;
+  animation: background-shift 3s infinite alternate;
 }
 
-/* FIXED BANNER */
+/* making the whole background move like it's alive */
+@keyframes background-shift {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(180deg) saturate(200%);
+  }
+  100% {
+    filter: hue-rotate(360deg) contrast(150%);
+  }
+}
+
+/* fixed banner but now it refuses to behave */
 #annoying-banner {
   position: fixed;
   top: 0;
@@ -34,9 +48,29 @@ body {
   border-bottom: 7px dotted lime;
   text-align: center;
   z-index: 9999;
+  animation: banner-shake 0.8s infinite;
 }
 
-/* HEADER */
+/* shaking for absolutely no reason */
+@keyframes banner-shake {
+  0% {
+    transform: translateX(0px);
+  }
+  25% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(3px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+/* header doing some weird angle stuff */
 #top-header {
   margin-top: 70px;
   padding: 20px;
@@ -46,6 +80,17 @@ body {
   transform: skewX(-5deg);
   box-shadow: 0 0 30px orange;
   position: relative;
+  animation: header-wiggle 2s infinite alternate;
+}
+
+/* header gently floating like it's haunted */
+@keyframes header-wiggle {
+  0% {
+    transform: skewX(-5deg) translateY(0px);
+  }
+  100% {
+    transform: skewX(10deg) translateY(15px) rotate(2deg);
+  }
 }
 
 #top-header::before {
@@ -58,6 +103,20 @@ body {
   padding: 4px 10px;
   border: 2px solid yellow;
   font-size: 12px;
+  animation: eye-blink 1.5s infinite;
+}
+
+/* blinking label because why not */
+@keyframes eye-blink {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 0.2;
+    transform: scaleY(0.3);
+  }
 }
 
 .title {
@@ -65,6 +124,20 @@ body {
   color: yellow;
   text-shadow: 5px 5px 0 black;
   letter-spacing: 5px;
+  animation: title-spin 4s infinite alternate;
+}
+
+/* slow spin, like the page is dizzy */
+@keyframes title-spin {
+  0% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(-5deg) scale(0.95);
+  }
 }
 
 .subtitle {
@@ -73,9 +146,22 @@ body {
   display: inline-block;
   padding: 5px 20px;
   border: 5px dashed red;
+  animation: subtitle-pulse 0.7s infinite alternate;
 }
 
-/* NAV MENU */
+/* flashing subtitle for extra pain */
+@keyframes subtitle-pulse {
+  from {
+    transform: scale(1);
+    filter: brightness(100%);
+  }
+  to {
+    transform: scale(1.2);
+    filter: brightness(200%);
+  }
+}
+
+/* menu still sticky but now it vibes aggressively */
 .menu {
   display: flex;
   justify-content: space-around;
@@ -87,9 +173,19 @@ body {
   position: sticky;
   top: 55px;
   z-index: 1000;
+  animation: menu-slide 2s infinite alternate;
 }
 
-/* DESCENDANT SELECTOR */
+/* menu slowly moving like it's trying to escape */
+@keyframes menu-slide {
+  0% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(10px);
+  }
+}
+
 .menu a {
   padding: 10px 25px;
   border: 4px groove cyan;
@@ -98,17 +194,19 @@ body {
   color: black;
   font-weight: bold;
   transform: rotate(-3deg);
+  transition: all 0.2s linear;
 }
 
-/* PSEUDO CLASS */
+/* hover is now basically a jump scare */
 .menu a:hover {
   background: black;
   color: hotpink;
-  transform: rotate(10deg) scale(1.2);
+  transform: rotate(25deg) scale(1.4);
   border-radius: 50px;
+  box-shadow: 0 0 30px cyan;
 }
 
-/* MAIN LAYOUT */
+/* main layout just existing but also twitching */
 .main-chaos {
   display: flex;
   justify-content: space-between;
@@ -116,9 +214,20 @@ body {
   gap: 20px;
   padding: 30px;
   border: 15px ridge gold;
+  animation: border-glow 1s infinite alternate;
 }
 
-/* SIDEBAR */
+/* border glow like it's radioactive */
+@keyframes border-glow {
+  from {
+    box-shadow: 0 0 10px red;
+  }
+  to {
+    box-shadow: 0 0 40px lime;
+  }
+}
+
+/* sidebar but now it's slowly rotating like a microwave plate */
 .sidebar {
   width: 25%;
   background: repeating-radial-gradient(circle, lime, red 20px, black 40px);
@@ -128,6 +237,20 @@ body {
   top: 120px;
   height: fit-content;
   box-shadow: inset 0 0 20px white;
+  animation: sidebar-spin 6s infinite linear;
+}
+
+/* subtle rotation but still annoying */
+@keyframes sidebar-spin {
+  0% {
+    transform: rotate(-1deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: rotate(-1deg);
+  }
 }
 
 .sidebar h2 {
@@ -136,6 +259,18 @@ body {
   border: 5px solid red;
   padding: 10px;
   text-align: center;
+  animation: h2-jump 1.3s infinite;
+}
+
+/* h2 is jumping because it drank 6 energy drinks */
+@keyframes h2-jump {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
 }
 
 .weird-list li {
@@ -144,20 +279,39 @@ body {
   padding: 8px;
   background: pink;
   border-left: 10px solid blue;
+  transition: all 0.3s ease;
 }
 
-/* NTH CHILD CHAOS */
+.weird-list li:hover {
+  transform: scale(1.1) rotate(-4deg);
+  background: yellow;
+  box-shadow: 0 0 15px black;
+}
+
+/* nth child chaos still exists */
 .weird-list li:nth-child(2) {
   background: lime;
   transform: rotate(3deg);
+  animation: list-wobble 0.8s infinite alternate;
 }
 
 .weird-list li:nth-child(4) {
   background: cyan;
   font-size: 30px;
+  animation: list-wobble 0.3s infinite alternate;
 }
 
-/* BUTTON */
+/* wobble wobble wobble */
+@keyframes list-wobble {
+  from {
+    transform: rotate(-2deg) translateX(-3px);
+  }
+  to {
+    transform: rotate(5deg) translateX(5px);
+  }
+}
+
+/* panic button now basically explodes on hover */
 .panic-btn {
   width: 100%;
   padding: 20px;
@@ -167,15 +321,28 @@ body {
   border: 7px dotted yellow;
   cursor: pointer;
   margin-top: 20px;
+  animation: panic-pulse 0.5s infinite alternate;
+}
+
+@keyframes panic-pulse {
+  from {
+    transform: scale(1);
+    filter: brightness(100%);
+  }
+  to {
+    transform: scale(1.05);
+    filter: brightness(250%);
+  }
 }
 
 .panic-btn:hover {
   background: black;
   color: red;
-  transform: scale(1.1) rotate(-5deg);
+  transform: scale(1.3) rotate(-12deg);
+  box-shadow: 0 0 50px red;
 }
 
-/* CONTENT */
+/* content is normal-ish (not really) */
 .content {
   width: 75%;
   display: flex;
@@ -183,13 +350,32 @@ body {
   gap: 25px;
 }
 
-/* CARD */
+/* cards are now floating like cursed powerpoint slides */
 .card {
   background: rgba(255, 255, 255, 0.6);
   padding: 20px;
   border: 10px solid purple;
   box-shadow: 10px 10px 0 black;
   position: relative;
+  animation: card-float 2.5s infinite ease-in-out;
+}
+
+@keyframes card-float {
+  0% {
+    transform: translateY(0px) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(2deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(-1deg);
+  }
+}
+
+.card:hover {
+  transform: scale(1.05) rotate(3deg);
+  border-color: lime;
+  filter: saturate(300%);
 }
 
 .card::after {
@@ -201,20 +387,51 @@ body {
   padding: 4px 10px;
   border: 3px solid black;
   transform: rotate(5deg);
+  animation: sticker-spin 1s infinite alternate;
 }
 
-/* ID SELECTOR */
+/* sticker is spinning slightly like it's insecure */
+@keyframes sticker-spin {
+  from {
+    transform: rotate(5deg);
+  }
+  to {
+    transform: rotate(-8deg) scale(1.2);
+  }
+}
+
 #first-card {
   border-radius: 60px 5px 60px 5px;
   border-color: red;
+  animation: first-card-flash 1s infinite alternate;
 }
 
-/* CLASS SELECTOR */
+/* first card is trying to grab attention */
+@keyframes first-card-flash {
+  from {
+    filter: brightness(100%);
+  }
+  to {
+    filter: brightness(200%) hue-rotate(80deg);
+  }
+}
+
 .highlight {
   background: black;
   color: lime;
   padding: 3px 8px;
   border: 2px dashed hotpink;
+  animation: highlight-glitch 0.2s infinite alternate;
+}
+
+/* glitch effect but low effort */
+@keyframes highlight-glitch {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(3px);
+  }
 }
 
 .quote {
@@ -223,9 +440,19 @@ body {
   padding: 15px;
   border: 6px double red;
   transform: skewY(4deg);
+  animation: quote-slide 2s infinite alternate;
 }
 
-/* FLOAT ELEMENT */
+@keyframes quote-slide {
+  from {
+    transform: skewY(4deg) translateX(0px);
+  }
+  to {
+    transform: skewY(-6deg) translateX(20px);
+  }
+}
+
+/* float element still floating, but now it spins too */
 .floating-box {
   float: right;
   width: 180px;
@@ -235,9 +462,19 @@ body {
   border: 8px groove purple;
   font-size: 14px;
   transform: rotate(8deg);
+  animation: float-box-chaos 1.2s infinite alternate;
 }
 
-/* FLEXBOX DISASTER */
+@keyframes float-box-chaos {
+  from {
+    transform: rotate(8deg) scale(1);
+  }
+  to {
+    transform: rotate(-20deg) scale(1.2);
+  }
+}
+
+/* flexbox disaster but now it also vibrates */
 .flex-disaster {
   display: flex;
   justify-content: space-evenly;
@@ -247,6 +484,17 @@ body {
   border: 10px dotted red;
   padding: 20px;
   background: linear-gradient(to bottom, black, hotpink);
+  animation: flex-rainbow 1.5s infinite alternate;
+}
+
+/* background color shifting like a cheap rave */
+@keyframes flex-rainbow {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(250deg);
+  }
 }
 
 .flex-item {
@@ -257,15 +505,27 @@ body {
   padding: 15px;
   border: 5px solid lime;
   background: yellow;
+  animation: flex-item-bounce 1s infinite alternate;
+}
+
+/* each item bouncing around like it has no purpose */
+@keyframes flex-item-bounce {
+  from {
+    transform: translateY(0px) rotate(0deg);
+  }
+  to {
+    transform: translateY(-20px) rotate(10deg);
+  }
 }
 
 .flex-item:hover {
-  transform: rotate(360deg);
+  transform: rotate(720deg) scale(1.4);
   border-radius: 100%;
   background: cyan;
+  filter: blur(1px);
 }
 
-/* FORM */
+/* form but now it kinda... breathes */
 .ugly-form {
   display: flex;
   flex-direction: column;
@@ -273,6 +533,16 @@ body {
   border: 8px dashed orange;
   padding: 20px;
   background: repeating-linear-gradient(90deg, purple, cyan 20px);
+  animation: form-breathe 2s infinite alternate;
+}
+
+@keyframes form-breathe {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.03) rotate(-1deg);
+  }
 }
 
 .ugly-form input,
@@ -281,6 +551,14 @@ body {
   border: 5px solid black;
   background: lime;
   font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.ugly-form input:focus,
+.ugly-form select:focus {
+  background: hotpink;
+  transform: scale(1.1) rotate(2deg);
+  outline: 5px solid yellow;
 }
 
 .ugly-form button {
@@ -289,18 +567,40 @@ body {
   color: yellow;
   font-size: 18px;
   border: 6px dotted red;
+  animation: button-jitter 0.4s infinite alternate;
+}
+
+/* button has anxiety */
+@keyframes button-jitter {
+  from {
+    transform: translateX(-2px);
+  }
+  to {
+    transform: translateX(3px);
+  }
 }
 
 .ugly-form button:hover {
   background: red;
   color: cyan;
-  transform: scale(1.2);
+  transform: scale(1.3) rotate(10deg);
+  box-shadow: 0 0 25px cyan;
 }
 
-/* ABSOLUTE POSITIONING INSIDE RELATIVE */
+/* last card still kinda bossy */
 .last-card {
   border: 15px ridge lime;
   transform: rotate(-1deg);
+  animation: boss-card 1.5s infinite alternate;
+}
+
+@keyframes boss-card {
+  from {
+    transform: rotate(-1deg) scale(1);
+  }
+  to {
+    transform: rotate(3deg) scale(1.05);
+  }
 }
 
 .absolute-chaos {
@@ -313,26 +613,45 @@ body {
   border: 5px solid black;
   transform: rotate(15deg);
   z-index: 5;
+  animation: chaos-pop 0.6s infinite alternate;
 }
 
-/* ADJACENT SIBLING SELECTOR */
+/* absolute box popping like a notification you can't close */
+@keyframes chaos-pop {
+  from {
+    transform: rotate(15deg) scale(1);
+  }
+  to {
+    transform: rotate(-10deg) scale(1.3);
+  }
+}
+
+/* sibling selector stuff but now it also moves */
 h2 + p {
   border-left: 8px solid red;
   padding-left: 10px;
+  animation: paragraph-slide 2s infinite alternate;
 }
 
-/* CHILD SELECTOR */
+@keyframes paragraph-slide {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(20px);
+  }
+}
+
 .sidebar > ul {
   border: 6px dashed black;
   padding: 10px;
 }
 
-/* GENERAL SIBLING SELECTOR */
 h2 ~ p {
   text-shadow: 2px 2px 0 lime;
 }
 
-/* FOOTER */
+/* footer is doing the slow spooky fade */
 .footer {
   padding: 40px;
   text-align: center;
@@ -341,28 +660,47 @@ h2 ~ p {
   border-top: 12px double yellow;
   font-size: 18px;
   margin-top: 50px;
+  animation: footer-fade 2s infinite alternate;
+}
+
+@keyframes footer-fade {
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-5px);
+  }
 }
 
 .footer-small {
   font-size: 12px;
   color: hotpink;
+  animation: small-text-glitch 0.2s infinite alternate;
 }
 
-/* MEDIA QUERIES */
+/* yeah this is unreadable now */
+@keyframes small-text-glitch {
+  from {
+    letter-spacing: 0px;
+  }
+  to {
+    letter-spacing: 4px;
+  }
+}
+
+/* media queries still exist, but now they freak out too */
 @media (max-width: 900px) {
   body {
-    background: repeating-linear-gradient(
-      90deg,
-      black,
-      lime 20px,
-      red 40px
-    );
+    background: repeating-linear-gradient(90deg, black, lime 20px, red 40px);
     color: white;
+    animation: background-shift 0.8s infinite alternate;
   }
 
   .main-chaos {
     flex-direction: column-reverse;
     border: 20px dashed hotpink;
+    animation: border-glow 0.3s infinite alternate;
   }
 
   .sidebar {
@@ -384,6 +722,7 @@ h2 ~ p {
   .title {
     font-size: 25px;
     letter-spacing: 1px;
+    animation: title-spin 0.6s infinite alternate;
   }
 
   .menu a {
@@ -395,6 +734,7 @@ h2 ~ p {
   .card {
     transform: rotate(2deg);
     border: 10px dotted yellow;
+    animation: card-float 0.8s infinite ease-in-out;
   }
 
   .floating-box {
@@ -406,5 +746,6 @@ h2 ~ p {
   #annoying-banner {
     font-size: 12px;
     padding: 5px;
+    animation: banner-shake 0.2s infinite;
   }
 }
